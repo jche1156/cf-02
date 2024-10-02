@@ -6,23 +6,27 @@ export default function App() {
       <p>This is a Javascript-based backend built entirely within Cloudflare's platform!</p>
     </section>
     <section id="summary">
-      <h2>Demo</h2>
+      <h2>Demos</h2>
       <article>
-        <header>A Totally Functional Widget</header>
-        <form hx-post="/api/health" hx-swap="afterend">
-          <input name="prompt" type="text" placeholder="Chat" />
+        <header>A Functioning KV Widget</header>
+        <form hx-post="/api/kv" hx-target="#kv-results">
+          <fieldset class="grid">
+            <input name="key" type="text" placeholder="key" />
+            <input name="value" type="text" placeholder="value" />
+          </fieldset>
           <input type="submit" value="Submit" />
-        </form>  
+        </form>
+        <article id="kv-results" />
       </article>
     </section>
     <section>
       <h2>Next steps:</h2>
       <ul>
-        <li>Hono</li>
-        <li>Cloudflare Workers</li>
+        <li><s>Hono</s></li>
+        <li><s>Cloudflare Workers</s></li>
         <li>D1</li>
-        <li>KV</li>
-        <li>AI</li>
+        <li><s>KV</s></li>
+        <li><s>AI</s></li>
       </ul>
     </section>
     </>
