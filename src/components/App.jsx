@@ -18,6 +18,14 @@ export default function App() {
         </form>
         <article id="kv-results" />
       </article>
+      <article>
+        <header>Luma Food</header>
+        <form hx-post="/api/luma_food" hx-target="#luma-results">
+          <input name="question" type="text" placeholder="event_info" />
+          <input type="submit" value="Submit" />
+        </form>
+        <article id="luma-results" />
+      </article>
     </section>
     <section>
       <h2>Next steps:</h2>
