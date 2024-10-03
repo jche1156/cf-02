@@ -1,4 +1,31 @@
 
+function safeJSONParse(jsonString) {
+    try {
+        // Try parsing the JSON
+        return JSON.parse(jsonString);
+    } catch (e) {
+        if (e instanceof SyntaxError) {
+            console.error("SyntaxError: Unable to parse JSON. Attempting to fix...");
+            // Attempt common fixes (e.g., replace unescaped quotes)
+            const fixedString = jsonString
+                .replace(/[\u0000-\u0019]+/g, "") // Remove control characters
+                .replace(/\\(?!["\\/bfnrtu])/g, ""); // Fix unescaped backslashes
+
+            try {
+                // Retry parsing the fixed string
+                return JSON.parse(fixedString);
+            } catch (secondError) {
+                console.error("Second attempt to parse failed.");
+                return null; // Return null or handle accordingly if still invalid
+            }
+        } else {
+            // Handle other types of errors if needed
+            console.error("Unknown error while parsing JSON:", e);
+            return null;
+        }
+    }
+}
+
 export const luma_food = async (c) => {
 	const formData = await c.req.parseBody();
 	const sys_prompt = `You are helping people find events they're interested in by summarizing and highlighting the most pertinent information. 
@@ -22,13 +49,13 @@ Answer like so, with no additional content:
 				},
 			],
 		});
-	let response = await c.req.parseBody();
 
+	let ans = safeJSONParse(result["response"]);
+	
 	return c.html(
 		<article id="luma-results">
-			<header>Free Food? {result.response.free_food}</header>
-			<p>Reason: {result.response.reasoning}</p>
-			<p>Debug: {JSON.stringify(result)}</p>
+			<header>Free Food? {ans["free_food"] ? "Free Food Found" : "No Free Food"}</header>
+			<p>Reasoning: {ans["reasoning"]}</p>
 		</article>
 	);
 	
