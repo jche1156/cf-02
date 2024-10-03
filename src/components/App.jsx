@@ -8,23 +8,12 @@ export default function App() {
     <section id="summary">
       <h2>Demos</h2>
       <article>
-        <header>A Functioning KV Widget</header>
-        <form hx-post="/api/kv" hx-target="#kv-results">
-          <fieldset class="grid">
-            <input name="key" type="text" placeholder="key" />
-            <input name="value" type="text" placeholder="value" />
-          </fieldset>
-          <input type="submit" value="Submit" />
-        </form>
-        <article id="kv-results" />
-      </article>
-      <article>
         <header>Luma Food</header>
         <form hx-post="/api/luma_food" hx-target="#luma-results">
           <input name="question" type="text" placeholder="event_info" />
           <input type="submit" value="Submit" />
         </form>
-        <article id="luma-results" />
+        <div id="luma-results" />
       </article>
     </section>
     <section>
