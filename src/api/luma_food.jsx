@@ -143,7 +143,5 @@ Answer like so, with no additional content:
 			</article>
 		</div>
 	);
-	
-	// return c.json(result["response"]);
 };
 

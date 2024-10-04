@@ -5,12 +5,14 @@ export default function TechTable() {
         <strong>Acknowledgements</strong>
       </header>
       <p>
-        This project was made possible due to the generous help offered by Cloudflare.
+        This project was made possible due to the vibrant SF tech community.
       </p>
       <p>
         Special thanks to:
         <ul>
-          <li>Joe</li>
+          <li>Cloudflare</li>
+          <li>CCSF CS Club</li>
+          <li>You!</li>
         </ul>
       </p>
     </article>
