@@ -11,7 +11,7 @@ export default function App() {
       <h2>Demos</h2>
       <article>
         <header>Tech Event Summarizer</header>
-        <form hx-post="/api/luma_food" hx-target="#luma-results">
+        <form hx-post="/api/oai_food" hx-target="#luma-results">
           <input name="question" type="text" placeholder="event_info" />
           <input type="submit" value="Submit" />
         </form>
